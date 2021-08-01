@@ -14,7 +14,7 @@ echo Hello World
 
 # Print multiple lines (\n), some tab space (/t)
 
-echo -e Hello World, \n\tWelcome
+echo -e "Hello World, \n\tWelcome"
 
 # Enable colors (\e)
 
@@ -27,5 +27,9 @@ echo -e Hello World, \n\tWelcome
 # MAGENTA 35
 # CYAN    36
 
+# Colors enables will take those colors to next line, hence we need to disable color when we are done with color printing \e[0m, o will reset the color
+
 echo -e "\e[31mMESSAGE IN RED"
 echo -e "\e[33mMESSAGE IN YELLOW"
+
+echo Hello world in plain color
