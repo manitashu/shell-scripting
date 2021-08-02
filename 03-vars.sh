@@ -13,3 +13,4 @@ echo Number of users = $N0_OF_USERS
 DATE=$(date +%F)
 echo Welcome,today date is $DATE
 
+echo COURSE NAME = ${COURSE_NAME}
