@@ -3,7 +3,7 @@
 ## Declare a function
 
 Sample () {
-  echo Hello I am Sample function
+  echo Hello, I am Sample function
 }
 
 ## Call the function
