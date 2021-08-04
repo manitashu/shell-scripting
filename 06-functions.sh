@@ -2,7 +2,7 @@
 
 ## Declare a function
 
-Sample () {
+Sample() {
   echo Hello, I am Sample function
   echo value of a = ${a}
   b=200
