@@ -6,8 +6,9 @@ sample() {
   echo Hello, I am Sample function
   echo value of a = ${a}
   b=200
-  echo First Argument in Functions = $1
+  echo First Argument in functions = $1
 }
+
 ## Main Program
 
 ## Call the function
