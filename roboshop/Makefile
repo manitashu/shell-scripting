@@ -1,3 +1,5 @@
+help: ## Print this message
+
 frontend:
      @echo Installing Frontend
 catalogue:
