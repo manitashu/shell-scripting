@@ -1,0 +1,8 @@
+LOL U JUST CREATED A SKELETON
+yup
+HA HA
+OK I THIN ITS WORKING
+
+ya can you please what was the error?
+YA
+U HAD TO GIVE TAB HEAR
