@@ -2,8 +2,8 @@
 #	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$//' | sed -e 's/##//'
 frontend:  ## Install Frontend component
 	@sh frontend.sh
-#catalogue: ## Install Catalogue component
-#	@bash catalogue.sh
+catalogue: ## Install Catalogue component
+	@bash catalogue.sh
 #cart:      ## Install Cart component
 #	@bash cart.sh
 #user:      ## Install User component
