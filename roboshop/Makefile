@@ -4,8 +4,8 @@ frontend:  ## Install Frontend component
 	@sh frontend.sh
 catalogue: ## Install Catalogue component
 	@bash catalogue.sh
-#cart:      ## Install Cart component
-#	@bash cart.sh
+cart:      ## Install Cart component
+	@bash cart.sh
 #user:      ## Install User component
 #	@bash user.sh
 #shipping:  ## Install Shipping component
