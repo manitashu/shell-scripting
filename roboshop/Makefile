@@ -6,6 +6,9 @@ catalogue: ## Install Catalogue component
 	@bash catalogue.sh
 cart:      ## Install Cart component
 	@bash cart.sh
+
+
+shell
 #user:      ## Install User component
 #	@bash user.sh
 #shipping:  ## Install Shipping component
