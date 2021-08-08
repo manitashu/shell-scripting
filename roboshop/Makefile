@@ -8,7 +8,8 @@ cart:      ## Install Cart component
 	@bash cart.sh
 
 
-shell
+shell:
+	@sh ../01-shell.sh
 #user:      ## Install User component
 #	@bash user.sh
 #shipping:  ## Install Shipping component
