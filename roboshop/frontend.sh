@@ -2,7 +2,7 @@
 
 LOG=/tmp/roboshop.log
 
-echo -e "Installing Nginx\t\t...\t\e[32mdone\e[0m"
+echo -e "Installing Nginx\t\t...\t\e[32m done\e[0m"
 yum install nginx -y >/$LOG
 
 ### 1. Output of commands should not be displayed on screen
