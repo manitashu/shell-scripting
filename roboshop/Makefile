@@ -3,23 +3,23 @@
 frontend:  ## Install Frontend component
 	@sh frontend.sh
 catalogue: ## Install Catalogue component
-	@bash catalogue.sh
+	@sh catalogue.sh
 cart:      ## Install Cart component
-	@bash cart.sh
+	@sh cart.sh
 user:      ## Install User component
-	@bash user.sh
+	@sh user.sh
 shipping:  ## Install Shipping component
-	@bash shipping.sh
+	@sh shipping.sh
 payment:   ## Install Payment component
-	@bash payment.sh
+	@sh payment.sh
 mongodb:   ## Install MongoDB component
-	@bash mongodb.sh
+	@sh mongodb.sh
 redis:     ## Install Redis component
-	@bash redis.sh
+	@sh redis.sh
 mysql:     ## Install MySQL component
-	@bash mysql.sh
+	@sh mysql.sh
 rabbitmq:  ## Install RabbitMQ component
-	@bash rabbitmq.sh
+	@sh rabbitmq.sh
 databases: ## Install all databases
 databases: mongodb redis rabbitmq mysql
 
