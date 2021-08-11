@@ -17,6 +17,7 @@ STAT_CHECK() {
     exit 1
   fi
 }
+
 PRINT () {
   echo -n -e "$1\t\t..."
 }
