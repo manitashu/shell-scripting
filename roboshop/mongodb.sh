@@ -36,3 +36,19 @@ STAT_CHECK $?
 PRINT "Install MongoDB\t\t"
 yum install -y mongodb-org &>>$LOG
 STAT_CHECK $?
+
+PRINT "Update MongoDB Listen Address"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongodb.conf
+STAT_CHECK $?
+
+PRINT "Start MongoDB service\t"
+systemctl enable mongod &>>$LOG && systemctl start mongod &>>$LOG
+STAT_CHECK $?
+
+PRINT "Download MongoDB schema\t"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG
+STAT_CHECK $?
+
+PRINT "Load schema\t\t"
+cd /tmp &>>$LOG && unzip -o mongodb.zip &>>$LOG && cd mongodb-main &>>$LOG && mongo < catalogue.js &>>$LOG && mongo < users.js &>>$LOG
+STAT_CHECK $?
