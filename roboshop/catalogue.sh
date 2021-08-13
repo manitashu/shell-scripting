@@ -51,10 +51,6 @@ PRINT "Fix Application Permissions"
 chown roboshop:roboshop /home/roboshop -R &>>$LOG
 STAT_CHECK $?
 
-PRINT "Update SystemD Files\t"
-sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" /etc/systemd/system/catalogue.service
-STAT_CHECK $?
-
 PRINT "Setup SystemD Files\t"
 sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 STAT_CHECK $?
