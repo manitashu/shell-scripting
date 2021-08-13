@@ -8,7 +8,7 @@ STAT_CHECK $?
 
 PRINT "Add Roboshop Application User"
 id roboshop &>>$LOG
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
   useradd roboshop &>>$LOG
 fi
 STAT_CHECK $?
