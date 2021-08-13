@@ -19,6 +19,11 @@ STAT_CHECK() {
   fi
 }
 
+PRINT () {
+  echo -e "\n##################\t$1\t###################" &>>$LOG
+  echo -n -e "$1\t\t..."
+}
+
 PRINT "Install Redis Repo\t"
 yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y &>>$LOG
 STAT_CHECK $?
