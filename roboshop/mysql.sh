@@ -41,7 +41,7 @@ systemctl enable mysqld &>>$LOG && systemctl start mysqld &>>$LOG
 STAT_CHECK $?
 
 PRINT "Reset MySQL Root Password"
-DEFAULT_PASSWROD=$(grep 'A temporary password' /var/lod/mysqld.log | awk '{print $NF}')
+DEFAULT_PASSWROD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql -uroot -p${DEFAULT_PASSWROD} &>>$LOG
 STAT_CHECK $?
 
