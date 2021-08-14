@@ -3,22 +3,32 @@
 source common.sh
 
 PRINT "Install ERLang"
-yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm -y &>>$LOG
+yum list installed | grep erlang &>>$LOG
+if [ $? -ne 0 ]; then
+  yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm -y &>>$LOG
+fi
 STAT_CHECK $?
 
+PRINT "Setup RabbitMQ repos"
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>>$LOG
+STAT_CHECK $?
 
+PRINT "Install RabbitMQ server"
+yum install rabbitmq-server -y &>>$LOG
+STAT_CHECK $?
 
+PRINT "Start RabbitMQ Service"
+systemctl enable rabbitmq-server &>>$LOG && systemctl start rabbitmq-server &>>$LOG
+STAT_CHECK $?
 
-Setup YUM repositories for RabbitMQ.
-# curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
-Install RabbitMQ
-# yum install rabbitmq-server -y
-Start RabbitMQ
-# systemctl enable rabbitmq-server
-# systemctl start rabbitmq-server
-RabbitMQ comes with a default username / password as guest/guest. But this user cannot be used to connect. Hence we need to create one user for the application.
+PRINT "Create App User in RabbitMQ"
+rabbitmqctl add_user roboshop roboshop123
+STAT_CHECK $?
 
-Create application user
-# rabbitmqctl add_user roboshop roboshop123
-# rabbitmqctl set_user_tags roboshop administrator
-# rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+PRINT "Create App User in RabbitMQ"
+rabbitmqctl list_users | grep roboshop &>>$LOG
+if [ $? -ne 0 ]; then
+  rabbitmqctl add_user roboshop roboshop123 &>>$LOG
+fi
+rabbitmqctl set_user_tags roboshop administrator && rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+STAT_CHECK $?
