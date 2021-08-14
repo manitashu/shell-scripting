@@ -99,22 +99,14 @@ PYTHON3 () {
   ADD_APPLICATION_USER
   DOWNLOAD_APP_CODE
 
-  PRINT "Install Python3 Dependencies\t"
+  PRINT "Install Python3 Dependencies"
   cd /home/roboshop/${COMPONENT} && pip3 install -r requirements.txt &>>$LOG
   STAT_CHECK $?
 
   PERM_FIX
 
 
-Download the repo.
-$ cd /home/roboshop
-$ curl -L -s -o /tmp/payment.zip "https://github.com/roboshop-devops-project/payment/archive/main.zip"
-$ unzip /tmp/payment.zip
-$ mv payment-main payment
-$ cd payment
-Install the dependencies
-# cd /home/roboshop/payment
-# pip3 install -r requirements.txt
+
 Note: Above command may fail with permission denied, So run as root user
 
 Update the roboshop user and group id in payment.ini file.
