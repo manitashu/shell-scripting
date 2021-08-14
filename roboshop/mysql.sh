@@ -42,7 +42,7 @@ STAT_CHECK $?
 
 PRINT "Reset MySQL Root Password"
 DEFAULT_PASSWROD=$(grep 'A temporary password' /var/lod/mysqld.log | awk '{print $NF}')
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1';" | mysql -uroot -p$(DEFAULT_PASSWROD) &>>$LOG
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql -uroot -p${DEFAULT_PASSWROD} &>>$LOG
 STAT_CHECK $?
 
 Next, We need to change the default root password in order to start using the database service.
