@@ -41,12 +41,14 @@ systemctl enable mysqld &>>$LOG && systemctl start mysqld &>>$LOG
 STAT_CHECK $?
 
 PRINT "Reset MySQL Root Password"
-DEFAULT_PASSWROD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
-echo "show databases;" | mysql -uroot -PRoboShop@1 &>>$LOG
+DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
+echo "show databases;" | mysql -uroot -pRoboShop@1 &>>$LOG
 if [ $? -ne 0 ]; then
-  echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWROD} &>>$LOG
+  echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD} &>>$LOG
 fi
 STAT_CHECK $?
+
+
 
 Next, We need to change the default root password in order to start using the database service.
 # mysql_secure_installation
