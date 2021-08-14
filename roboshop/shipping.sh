@@ -1,1 +1,2 @@
-echo "hi from shipping"
+#!/bin/bash
+
