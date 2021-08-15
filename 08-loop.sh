@@ -13,3 +13,5 @@ done
 for fruit in apple banana orange kiwi mango ; do
   echo $fruit
 done
+
+# the above loop will iterate for 5 times as there are 5 values
