@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source: common.sh
+source common.sh
 
 PRINT "Installing Nginx\t"
 yum install nginx -y  &>>$LOG

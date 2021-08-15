@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source: common.sh
+source common.sh
 
 PRINT "Setup MySQL Repos\t"
 echo '[mysql57-community]
