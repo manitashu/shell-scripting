@@ -51,7 +51,7 @@ PERM_FIX () {
 
 SETUP_SYSTEMD () {
   PRINT "Setup SystemD Files\t"
-  sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" -e "s/REDIS_ENDPOINT/redis.roboshop.internal/" -e "/MONGO_ENDPOINT/mongodb.roboshop.internal/" -e "s/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/" -e "s/CART_ENDPOINT/cart.roboshop.internal/" -e "s/DBHOST/mysql.roboshop.internal/" /home/roboshop/${COMPONENT}/systemd.service && mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+  sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" -e "s/REDIS_ENDPOINT/redis.roboshop.internal/" -e "/MONGO_ENDPOINT/mongodb.roboshop.internal/" -e "s/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/" -e "s/CARTENDPOINT/cart.roboshop.internal/" -e "s/DBHOST/mysql.roboshop.internal/" -e "s/CARTHOST/cart.roboshop.internal/" -e "s/USERHOST/user.roboshop.internal/" -e "s/AMQPHOST/rabbitmq.roboshop.internal/" /home/roboshop/${COMPONENT}/systemd.service && mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
   STAT_CHECK $?
 
   PRINT "Start ${COMPONENT} Service\t"
@@ -103,18 +103,12 @@ PYTHON3 () {
   cd /home/roboshop/${COMPONENT} && pip3 install -r requirements.txt &>>$LOG
   STAT_CHECK $?
 
+  PRINT "Update Service Configuration"
+  userID=$(id -u roboshop)
+  groupID=$(id -g roboshop)
+  sed -e "/uid/ c uid = ${userID}" -e "/gid/ c gid = ${groupID}" payment.ini &>>$LOG
+  STAT_CHECK $?
+
   PERM_FIX
-
-
-
-Note: Above command may fail with permission denied, So run as root user
-
-Update the roboshop user and group id in payment.ini file.
-
-Setup the service
-
-# mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service
-# systemctl daemon-reload
-# systemctl enable payment
-# systemctl start payment
+  SETUP_SYSTEMD
 }
