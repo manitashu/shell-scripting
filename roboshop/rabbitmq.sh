@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source common.sh
+source: common.sh
 
 PRINT "Install ERLang"
 yum list installed | grep erlang &>>$LOG

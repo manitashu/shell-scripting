@@ -1,5 +1,6 @@
 #!/bin/bash
 
-source common.sh
+source: common.sh
+
 COMPONENT=payment
 PYTHON3
