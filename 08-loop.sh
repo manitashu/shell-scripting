@@ -10,6 +10,6 @@ done
 
 # for loop
 
-for fruit in apple banana orange kiwi mango
+for fruit in apple banana orange kiwi mango ; do
   echo $fruit
 done
