@@ -1,5 +1,6 @@
 #!/bin/bash
-source common.sh
+
+source /home/centos/shell-scripting/roboshop/common.sh
 
 PRINT "Setting up Repository\t"
 echo '[mongodb-org-4.2]

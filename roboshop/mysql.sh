@@ -1,5 +1,6 @@
 #!/bin/bash
-source common.sh
+
+source /home/centos/shell-scripting/roboshop/common.sh
 
 PRINT "Setup MySQL Repos\t"
 echo '[mysql57-community]

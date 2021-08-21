@@ -1,5 +1,6 @@
 #!/bin/bash
-source common.sh
+
+source /home/centos/shell-scripting/roboshop/common.sh
 
 PRINT "Install Redis Repo\t"
 yum install epel-release yum-utils http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y &>>$LOG

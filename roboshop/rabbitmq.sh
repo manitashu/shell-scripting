@@ -1,5 +1,6 @@
 #!/bin/bash
-source common.sh
+
+source /home/centos/shell-scripting/roboshop/common.sh
 
 PRINT "Install ERLang"
 yum list installed | grep erlang &>>$LOG
