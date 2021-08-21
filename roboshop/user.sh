@@ -1,5 +1,5 @@
 #!/bin/bash
-. common.sh
+source /home/centos/shell-scripting/roboshop/common.sh
 
 COMPONENT=user
 NODEJS
