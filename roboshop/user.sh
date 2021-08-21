@@ -1,5 +1,5 @@
 #!/bin/bash
-source common.sh
+. common.sh
 
 COMPONENT=user
 NODEJS
