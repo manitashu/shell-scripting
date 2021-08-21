@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/centos/shell-scripting/roboshop/common.sh
+source shell-scripting/roboshop/common.sh
 
 PRINT "Installing Nginx\t"
 yum install nginx -y  &>>$LOG
