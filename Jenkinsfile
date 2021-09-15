@@ -9,11 +9,11 @@ pipeline {
             }
         }
 
-        stage('Terraform Apply') {
+        stage('Terraform Destroy') {
             steps {
             sh '''
             cd roboshop
-            terraform apply -auto-approve
+            terraform destroy -auto-approve
             '''
             }
         }
