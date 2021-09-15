@@ -3,15 +3,18 @@ pipeline {
 
     stages {
 
-        stage('One') {
+        stage('Terraform INIT') {
             steps {
-            sh 'echo hello'
+            sh 'cd roboshop ; terraform init'
             }
         }
 
-        stage('Two') {
+        stage('Terraform Apply') {
             steps {
-            sh 'echo hi'
+            sh '''
+            cd roboshop
+            terraform apply -auto-approve
+            '''
             }
         }
 
