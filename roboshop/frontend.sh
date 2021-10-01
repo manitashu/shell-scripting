@@ -30,9 +30,9 @@ PRINT "Enabling Nginx\t\t"
 systemctl enable nginx &>>$LOG
 STAT_CHECK $?
 
-#PRINT "Starting Nginx\t\t"
-#systemctl restart nginx &>>$LOG
-#STAT_CHECK $?
+PRINT "Starting Nginx\t\t"
+systemctl restart nginx &>>$LOG
+STAT_CHECK $?
 
 # 1. Output of commands should not be displayed on screen
 # 2. Validate the command is successful or not
