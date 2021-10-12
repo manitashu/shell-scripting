@@ -106,7 +106,7 @@ PYTHON3 () {
   PRINT "Update Service Configuration"
   userID=$(id -u roboshop)
   groupID=$(id -g roboshop)
-  sed -e "/uid/ c uid = ${userID}" -e "/gid/ c gid = ${groupID}" payment.ini &>>$LOG
+  sed -i -e "/uid/ c uid = ${userID}" -e "/gid/ c gid = ${groupID}" payment.ini &>>$LOG
   STAT_CHECK $?
 
   PERM_FIX
